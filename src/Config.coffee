@@ -3,6 +3,8 @@ fsp = require('fs/promises')
 path = require('path')
 dotenv = require('dotenv')
 
+VERSION = "1.0.1"
+
 class Config
   DIRECTORIES =
     app:         'app'
@@ -40,6 +42,7 @@ class Config
   _imports = new Map()
 
   constructor: (root) ->
+    @version = VERSION
     @env = process.env.NODE_ENV || 'development'
     @root = path.resolve(root)
     for k,v of DIRECTORIES

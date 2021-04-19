@@ -143,7 +143,7 @@ commands['help'] = ->
 
   """
   if args.options.version
-    console.log('1.0.0')
+    console.log(config.version)
     return
 
   switch args.argv[1]
@@ -229,9 +229,6 @@ commands['new'] = ->
   if !options.force && fs.existsSync(root)
     console.log("Directory %s is not empty", root)
     process.exit(1)
-
-  # !!!
-  version = "file:" + path.join(__dirname, '..')
 
   c = new Config(root)
 
@@ -470,7 +467,7 @@ commands['new'] = ->
       devel: "nodemon -e coffee --ignore 'app/assets/* data/* public/* tmp/*'"
       test: "NODE_ENV=test mocha --bail --parallel=false"
     dependencies:
-      serven: version
+      serven: "^#{config.version}"
 
   for k,v of packages
     pkg.dependencies[k] = v
