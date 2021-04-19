@@ -67,7 +67,8 @@ describe('Application Integrity', function(){
 
     bootstrap().then(function(){
       process.chdir(base);
-      app = new serven.Application(base);
+      let shared = require(path.join(base, 'node_modules', 'serven'));
+      app = new shared.Application(base);
       agent = request.agent(app);
       done();
     });
