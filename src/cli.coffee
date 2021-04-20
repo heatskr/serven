@@ -464,10 +464,16 @@ commands['new'] = ->
     name: name
     scripts:
       start: "serven server",
-      devel: "nodemon -e coffee --ignore 'app/assets/* data/* public/* tmp/*'"
+      devel: "nodemon --ext coffee --ignore 'app/assets/*' --ignore 'data/*' --ignore 'public/*' --ignore 'tmp/*'"
       test: "NODE_ENV=test mocha --bail --parallel=false"
     dependencies:
       serven: "^#{config.version}"
+    devDependencies:
+      chai: "^4.3.4",
+      faker: "^5.5.3",
+      mocha: "^8.3.2",
+      nodemon: "^2.0.7",
+      supertest: "^6.1.3"
 
   for k,v of packages
     pkg.dependencies[k] = v
