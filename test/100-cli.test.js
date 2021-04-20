@@ -25,7 +25,7 @@ describe('Command Line Interface', function(){
   });
 
   it('Bootstraps a new application',  function(done) {
-    this.timeout(20000);
+    this.timeout(60000);
 
     let cp = spawn(cli, [
       'new', 'project001', '--database=sqlite'

@@ -155,6 +155,7 @@ describe('Application Integrity', function(){
   });
 
   it('Finishes and clear server', function(done){
+    this.timeout(20000);
     fs.rmdirSync(tmp, { recursive: true });
     done();
   });
