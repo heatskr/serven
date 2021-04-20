@@ -3,7 +3,7 @@ fsp = require('fs/promises')
 path = require('path')
 dotenv = require('dotenv')
 
-VERSION = "1.0.3"
+VERSION = "1.0.4"
 
 class Config
   DIRECTORIES =
